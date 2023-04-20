@@ -46,8 +46,10 @@ class CustomViewBase(viewsets.ModelViewSet):
 
     def update(self,request,*args,**kwargs):
         partial = kwargs.pop('partial',False)
-        instancce = self.get_object()
+        instance = self.get_object()
         serializer = self.get_serializer(instance,data=request.data,partial=partial)
+        #修复AssertionError: You must call `.is_valid()` before calling `.save()`.
+        serializer.is_valid(raise_exception=True)
         self.perform_update(serializer)
 
         if getattr(instance,'_prefetched_objects_cache',None):
