@@ -25,7 +25,7 @@ class MusicViewSet(CustomViewBase):
 
     def create(self,request,*args,**kwargs):
         """creat music"""
-        pass
+        return super().create(request,*args,**kwargs)
     
     def list(self,request,*args,**kwargs):
         """all music"""
@@ -34,14 +34,14 @@ class MusicViewSet(CustomViewBase):
 
     def retrieve(self,request,*args,**kwargs):
         """查询一条数据"""
-        pass
+        return super().retrieve(requst,*args,**kwargs)
 
     def update(self,request,*args,**kwargs):
         """更新一条数据"""
-        pass
+        return super().update(request,*args,**kwargs)
     
     def destroy(self,request,*args,**kwargs):
         """删除一条数据"""
-        pass
+        return super().destroy(request,*args,**kwargs)
 
 
